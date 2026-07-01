@@ -14,6 +14,7 @@ export default {
         graphite: 'rgb(var(--color-graphite) / <alpha-value>)',
         surface: 'rgb(var(--color-surface) / <alpha-value>)',
         code: 'rgb(var(--color-code) / <alpha-value>)',
+        codeText: 'rgb(var(--color-code-text) / <alpha-value>)',
         mint: 'rgb(var(--color-mint) / <alpha-value>)',
         lime: 'rgb(var(--color-lime) / <alpha-value>)',
         rust: 'rgb(var(--color-rust) / <alpha-value>)',

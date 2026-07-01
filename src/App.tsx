@@ -69,18 +69,18 @@ function App(): ReactElement {
             <div className="relative animate-float" aria-label="Resumo visual de stack e foco profissional">
               <div className="absolute -left-4 top-8 h-24 w-16 bg-lime/50 blur-2xl" />
               <div className="absolute -right-6 bottom-8 h-32 w-20 bg-mint/30 blur-2xl" />
-              <div className="relative border border-ink bg-code p-4 text-ink shadow-soft">
-                <div className="mb-4 flex items-center justify-between border-b border-paper/10 pb-3">
+              <div className="relative border border-ink/35 bg-code p-4 text-codeText shadow-soft">
+                <div className="mb-4 flex items-center justify-between border-b border-codeText/10 pb-3">
                   <div className="flex gap-2" aria-hidden="true">
                     <span className="size-3 rounded-full bg-rust" />
                     <span className="size-3 rounded-full bg-lime" />
                     <span className="size-3 rounded-full bg-mint" />
                   </div>
-                  <span className="font-display text-xs font-bold uppercase text-paper/55">
+                  <span className="font-display text-xs font-bold uppercase text-codeText/55">
                     portfolio.tsx
                   </span>
                 </div>
-                <div className="space-y-4 font-mono text-sm leading-7 text-paper">
+                <div className="space-y-4 font-mono text-sm leading-7 text-codeText">
                   <p>
                     <span className="text-mint">const</span> developer ={' '}
                     <span className="text-lime">"Full Stack"</span>;
@@ -96,7 +96,7 @@ function App(): ReactElement {
                 </div>
                 <div className="mt-8 grid grid-cols-3 gap-3">
                   {['APIs', 'UI Admin', 'Multi-tenant'].map((item) => (
-                    <span key={item} className="border border-paper/15 px-3 py-4 text-center text-xs font-bold">
+                    <span key={item} className="border border-codeText/15 px-3 py-4 text-center text-xs font-bold">
                       {item}
                     </span>
                   ))}

@@ -11,6 +11,7 @@
   --color-graphite: 38 50 56;
   --color-surface: 255 255 255;
   --color-code: 17 26 32;
+  --color-code-text: 244 247 245;
   --color-mint: 20 184 166;
   --color-lime: 182 229 92;
   --color-rust: 194 90 63;
@@ -27,7 +28,8 @@
   --color-paper: 12 18 23;
   --color-graphite: 190 203 199;
   --color-surface: 24 34 40;
-  --color-code: 7 12 16;
+  --color-code: 4 9 12;
+  --color-code-text: 235 241 238;
   --color-mint: 45 212 191;
   --color-lime: 197 239 105;
   --color-rust: 231 132 98;
