@@ -95,7 +95,7 @@ function App(): ReactElement {
                   </p>
                 </div>
                 <div className="mt-8 grid grid-cols-3 gap-3">
-                  {['APIs', 'UI Admin', 'Multi-tenant'].map((item) => (
+                  {['APIs', 'UI Admin', 'Integrações'].map((item) => (
                     <span key={item} className="border border-codeText/15 px-3 py-4 text-center text-xs font-bold">
                       {item}
                     </span>

@@ -36,7 +36,7 @@ export const differentiators: string[] = [
   'Integração entre front-end, back-end e serviços externos',
   'APIs bem estruturadas e fluxos administrativos',
   'Docker em ambiente de desenvolvimento',
-  'Experiência com sistemas multi-tenant',
+  'Manutenção e evolução de aplicações web existentes',
 ];
 
 export const projects: Project[] = [

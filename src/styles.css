@@ -12,6 +12,10 @@
   --color-surface: 255 255 255;
   --color-code: 17 26 32;
   --color-code-text: 244 247 245;
+  --color-on-light: 16 24 32;
+  --color-on-light-muted: 38 50 56;
+  --color-on-dark: 244 247 245;
+  --color-on-dark-muted: 244 247 245;
   --color-mint: 20 184 166;
   --color-lime: 182 229 92;
   --color-rust: 194 90 63;
