@@ -1,8 +1,8 @@
-import type { ReactElement } from 'react';
+import { useEffect, useState, type ReactElement } from 'react';
 import { Header } from './components/Header';
 import { SectionHeading } from './components/SectionHeading';
 import { differentiators, profile, projects, technologies } from './data/profile';
-import type { ContactLink } from './types';
+import type { ContactLink, Theme } from './types';
 
 const contactLinks: ContactLink[] = [
   { label: 'GitHub', href: profile.githubUrl, detail: 'github.com/rThimoteo' },
@@ -11,10 +11,28 @@ const contactLinks: ContactLink[] = [
   { label: 'Currículo', href: profile.resumeUrl, detail: 'Baixar currículo em PDF', download: 'cv_rodrigo_thimoteo.pdf' },
 ];
 
+const getInitialTheme = (): Theme => (document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+
 function App(): ReactElement {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const isDark = theme === 'dark';
+
+    root.classList.toggle('dark', isDark);
+    root.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#0c1217' : '#101820');
+  }, [theme]);
+
+  const toggleTheme = (): void => {
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
+  };
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-paper font-body text-graphite">
-      <Header />
+      <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main id="inicio">
         <section className="relative isolate border-b border-ink/10 px-5 py-16 md:px-8 md:py-24">
@@ -51,7 +69,7 @@ function App(): ReactElement {
             <div className="relative animate-float" aria-label="Resumo visual de stack e foco profissional">
               <div className="absolute -left-4 top-8 h-24 w-16 bg-lime/50 blur-2xl" />
               <div className="absolute -right-6 bottom-8 h-32 w-20 bg-mint/30 blur-2xl" />
-              <div className="relative border border-ink bg-[#111a20] p-4 text-paper shadow-soft">
+              <div className="relative border border-ink bg-code p-4 text-ink shadow-soft">
                 <div className="mb-4 flex items-center justify-between border-b border-paper/10 pb-3">
                   <div className="flex gap-2" aria-hidden="true">
                     <span className="size-3 rounded-full bg-rust" />
@@ -62,7 +80,7 @@ function App(): ReactElement {
                     portfolio.tsx
                   </span>
                 </div>
-                <div className="space-y-4 font-mono text-sm leading-7">
+                <div className="space-y-4 font-mono text-sm leading-7 text-paper">
                   <p>
                     <span className="text-mint">const</span> developer ={' '}
                     <span className="text-lime">"Full Stack"</span>;
@@ -97,7 +115,7 @@ function App(): ReactElement {
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {differentiators.map((item) => (
-                <article key={item} className="border border-ink/12 bg-white/45 p-6 shadow-line">
+                <article key={item} className="border border-ink/12 bg-surface/55 p-6 shadow-line">
                   <span className="mb-5 block h-1 w-12 bg-mint" />
                   <p className="font-semibold leading-7 text-graphite">{item}</p>
                 </article>
@@ -140,7 +158,7 @@ function App(): ReactElement {
               {projects.map((project) => (
                 <article
                   key={project.title}
-                  className="group flex min-h-[330px] flex-col justify-between border border-ink/12 bg-white/55 p-6 shadow-line transition hover:-translate-y-1 hover:shadow-soft"
+                  className="group flex min-h-[330px] flex-col justify-between border border-ink/12 bg-surface/60 p-6 shadow-line transition hover:-translate-y-1 hover:shadow-soft"
                 >
                   <div>
                     <div className="mb-7 flex items-center justify-between">
@@ -173,7 +191,7 @@ function App(): ReactElement {
           </div>
         </section>
 
-        <section id="trajetoria" className="border-y border-ink/10 bg-white/42 px-5 py-20 md:px-8">
+        <section id="trajetoria" className="border-y border-ink/10 bg-surface/42 px-5 py-20 md:px-8">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <SectionHeading
               eyebrow="Trajetória"

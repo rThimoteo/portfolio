@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -8,12 +9,14 @@ export default {
         body: ['"Manrope"', 'sans-serif'],
       },
       colors: {
-        ink: '#101820',
-        paper: '#f4f7f5',
-        graphite: '#263238',
-        mint: '#14b8a6',
-        lime: '#b6e55c',
-        rust: '#c25a3f',
+        ink: 'rgb(var(--color-ink) / <alpha-value>)',
+        paper: 'rgb(var(--color-paper) / <alpha-value>)',
+        graphite: 'rgb(var(--color-graphite) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        code: 'rgb(var(--color-code) / <alpha-value>)',
+        mint: 'rgb(var(--color-mint) / <alpha-value>)',
+        lime: 'rgb(var(--color-lime) / <alpha-value>)',
+        rust: 'rgb(var(--color-rust) / <alpha-value>)',
       },
       boxShadow: {
         soft: '0 24px 80px rgba(16, 24, 32, 0.12)',

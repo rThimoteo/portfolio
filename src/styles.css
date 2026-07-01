@@ -6,6 +6,14 @@
 
 :root {
   color-scheme: light;
+  --color-ink: 16 24 32;
+  --color-paper: 244 247 245;
+  --color-graphite: 38 50 56;
+  --color-surface: 255 255 255;
+  --color-code: 17 26 32;
+  --color-mint: 20 184 166;
+  --color-lime: 182 229 92;
+  --color-rust: 194 90 63;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,8 +21,21 @@
   scroll-behavior: smooth;
 }
 
+.dark {
+  color-scheme: dark;
+  --color-ink: 235 241 238;
+  --color-paper: 12 18 23;
+  --color-graphite: 190 203 199;
+  --color-surface: 24 34 40;
+  --color-code: 7 12 16;
+  --color-mint: 45 212 191;
+  --color-lime: 197 239 105;
+  --color-rust: 231 132 98;
+}
+
 body {
   margin: 0;
+  background: rgb(var(--color-paper));
 }
 
 ::selection {

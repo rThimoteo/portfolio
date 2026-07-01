@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { profile } from '../data/profile';
-import type { NavItem } from '../types';
+import type { NavItem, Theme } from '../types';
 
 const navItems: NavItem[] = [
   { label: 'Sobre', href: '#sobre' },
@@ -10,7 +10,14 @@ const navItems: NavItem[] = [
   { label: 'Contato', href: '#contato' },
 ];
 
-export function Header(): ReactElement {
+type HeaderProps = {
+  theme: Theme;
+  onToggleTheme: () => void;
+};
+
+export function Header({ theme, onToggleTheme }: HeaderProps): ReactElement {
+  const isDark = theme === 'dark';
+
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/86 backdrop-blur-xl">
       <nav
@@ -36,12 +43,26 @@ export function Header(): ReactElement {
           ))}
         </div>
 
-        <a
-          href={`mailto:${profile.email}`}
-          className="rounded-sm border border-ink bg-ink px-4 py-2 text-sm font-bold text-paper transition hover:-translate-y-0.5 hover:bg-graphite focus:outline-none focus-visible:ring-2 focus-visible:ring-mint"
-        >
-          Conversar
-        </a>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label={`Alternar para tema ${isDark ? 'claro' : 'escuro'}`}
+            aria-pressed={isDark}
+            onClick={onToggleTheme}
+            className="group grid h-10 w-10 place-items-center rounded-sm border border-ink/15 bg-surface/65 text-sm font-bold text-ink shadow-line transition hover:-translate-y-0.5 hover:border-mint focus:outline-none focus-visible:ring-2 focus-visible:ring-mint"
+          >
+            <span aria-hidden="true" className="transition group-hover:scale-110">
+              {isDark ? '☀' : '☾'}
+            </span>
+          </button>
+
+          <a
+            href={`mailto:${profile.email}`}
+            className="rounded-sm border border-ink bg-ink px-4 py-2 text-sm font-bold text-paper transition hover:-translate-y-0.5 hover:bg-graphite focus:outline-none focus-visible:ring-2 focus-visible:ring-mint"
+          >
+            Conversar
+          </a>
+        </div>
       </nav>
     </header>
   );
